@@ -11,10 +11,7 @@ Following is the way to run the application. Please note you need to have NodeJs
 $ npm install
 ```
 
-```
 Please set the .env file as follows.
-
-```
 
 ```
 DATABASE_HOST=<<db host>>

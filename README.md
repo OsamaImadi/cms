@@ -2,7 +2,7 @@
 ## Description
 
 Simple Content Management System with users and Admin. 
-The postman documentation can be accessed here as well as a JSON of the documentation is also present in the root folder.
+The postman documentation can be accessed here (https://documenter.getpostman.com/view/8516302/2sA3JGgQ6n) as well as a JSON of the documentation is also present in the root folder.
 Following is the way to run the application. Please note you need to have NodeJs(https://nodejs.org/en) and NestJs(https://nestjs.com/) installed to run this application.
 
 ## Installation

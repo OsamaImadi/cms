@@ -1,0 +1,1301 @@
+{
+	"info": {
+		"_postman_id": "a3f05932-9542-4909-a5cb-579b7de152fd",
+		"name": "Content Management Service",
+		"description": "Postman documentation for content management system. It assumes that the service is running on localhost:3000.  \nAuthenticated endpoints are using bearer auth tokens.  \nEndpoints like get all users or get all posts etc. have optional query parameters that can be used to filter the resources by specified fields.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8516302"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Osama\",\r\n    \"lastName\":\"Imadi\",\r\n    \"username\":\"Osama\",\r\n    \"email\":\"osamaimadi@yahoo.com\",\r\n    \"password\":\"654321\",\r\n    \"dob\":\"14-02-1996\",\r\n    \"website\":\"https://osama-portfolio-web.netlify.app/\",\r\n    \"gender\":\"MALE\",\r\n    \"socialMediaHandler\":\"@OsamaImadi\",\r\n    \"phone\":\"+923115231495\",\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"picture\":\"src/pic.png\",\r\n    \"socialMediaHandler\":\"@Osama\",\r\n    \"status\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add user picture",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/osama/OneDrive/Desktop/images.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/users/upload/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"upload",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/11",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign role to user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/assign-role/8",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"assign-role",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Get all roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/roles",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"USER\",\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/roles",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/roles/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"roles",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get role by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/roles/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"roles",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get role with list of users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/roles/with-users/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"roles",
+								"with-users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/roles/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"roles",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "Create Tags",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "arts",
+									"type": "text"
+								},
+								{
+									"key": "active",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/osama/OneDrive/Desktop/images.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/tags",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/tags",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tag by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/tags/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tags",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "literature",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/osama/OneDrive/Desktop/placeholder-image.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/tags/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tags",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Tags",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/tags/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tags",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "travel",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/osama/OneDrive/Desktop/images.png"
+								},
+								{
+									"key": "description",
+									"value": "travel category",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get category by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/categories/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/categories/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categories",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "literature",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/osama/OneDrive/Desktop/placeholder-image.png"
+								},
+								{
+									"key": "description",
+									"value": "literature category",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/categories/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Create Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Murree trip",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/osama/OneDrive/Desktop/images.png"
+								},
+								{
+									"key": "body",
+									"value": "Went to Murree",
+									"type": "text"
+								},
+								{
+									"key": "slug",
+									"value": "murree-trip",
+									"type": "text"
+								},
+								{
+									"key": "summary",
+									"value": "Trip to Murree",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "tags",
+									"value": "[3,4]",
+									"type": "text"
+								},
+								{
+									"key": "categories",
+									"value": "[2,1]",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/posts",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/posts",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get post by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/posts/4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Murree trip",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/osama/OneDrive/Desktop/images.png"
+								},
+								{
+									"key": "body",
+									"value": "Went to Murree",
+									"type": "text"
+								},
+								{
+									"key": "slug",
+									"value": "murree-trip",
+									"type": "text"
+								},
+								{
+									"key": "summary",
+									"value": "Trip to Murree 2024",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "8",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "[3,4,7]",
+									"type": "text"
+								},
+								{
+									"key": "categories",
+									"value": "[2,1]",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/posts/4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/posts/4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/posts/approve/5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"approve",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Create Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"body\":\"Wow amazing\",\r\n    \"userId\":14,\r\n    \"postId\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/comments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/comments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get comment by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/comments/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"body\":\"very beautiful\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/comments/4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete comment by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/comments/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upvote Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzE0OTY4OTM5fQ.E7lWAGqwW-uTOZ_n9_GRHbJANyQxkKgWhRa4c9y1zk4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"approved\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/comments/upvote/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comments",
+								"upvote",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get post by category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/posts/category?name=movies",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"category"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "movies"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get post by tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/posts/tag?name=nature",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"tag"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "nature"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"osamaimadi@yahoo.com\",\r\n    \"password\":\"654321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/auth/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
